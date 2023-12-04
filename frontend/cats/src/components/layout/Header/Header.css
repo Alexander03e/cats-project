@@ -1,0 +1,28 @@
+.container {
+  width: 1250px !important;
+  margin: 0 auto;
+}
+.nav-info__item {
+  @apply flex flex-row;
+}
+.icon {
+  width: 24px;
+  margin-right: 4px;
+}
+.nav-info {
+  @apply flex gap-10 pt-2 items-center;
+}
+
+.header {
+  @apply pt-2 pb-2;
+  background-color: var(--header-color);
+}
+.nav-menu {
+  @apply flex items-center justify-between;
+}
+.nav-menu__navigation a {
+  margin-right: 1.5em;
+}
+.header {
+  margin-bottom: 4em;
+}

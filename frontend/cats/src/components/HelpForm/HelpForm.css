@@ -1,0 +1,14 @@
+.help-form {
+  display: flex;
+  flex-direction: column;
+  width: 35em;
+  background-color: var(--header-color);
+  padding: 2em;
+  gap: 2em;
+  border-radius: 2em;
+}
+
+.help-form input {
+  border-radius: 2em;
+  padding: 0.6em;
+}

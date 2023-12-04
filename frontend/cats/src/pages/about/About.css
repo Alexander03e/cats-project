@@ -1,0 +1,9 @@
+.img-container {
+  height: 22em;
+  width: 300em;
+}
+.img-container img {
+  border-radius: 3em;
+  height: 100%;
+  object-fit: cover;
+}

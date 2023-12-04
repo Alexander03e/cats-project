@@ -1,0 +1,21 @@
+.reg-form {
+  background-color: var(--header-color);
+  width: 30em;
+  padding: 2.6em;
+  margin: 0 auto;
+
+  border-radius: 2em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.reg-form h1 {
+  font-weight: 700;
+  font-size: 40px;
+  font-family: "Soyuz Grotesk";
+}
+.reg-form input {
+  background-color: var(--main-color);
+  padding: 0.8em;
+  border-radius: 1.2em;
+}

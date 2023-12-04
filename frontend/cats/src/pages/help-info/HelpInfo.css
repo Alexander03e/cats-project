@@ -1,0 +1,19 @@
+.help-info__alternative {
+  @apply flex justify-between gap-32;
+}
+.help-info__alternative img {
+  width: 50%;
+}
+.help-info__hackers {
+  @apply flex justify-between gap-20 mb-12;
+}
+.help-info__hackers img {
+  width: 100%;
+  height: 100%;
+}
+.help-info__medicine {
+  @apply help-info__alternative;
+}
+.help-info__title {
+  @apply leading-10;
+}

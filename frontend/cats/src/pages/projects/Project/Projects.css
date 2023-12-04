@@ -1,0 +1,5 @@
+.project {
+  width: 35em;
+  border-radius: 3em;
+  background-color: var(--header-color);
+}

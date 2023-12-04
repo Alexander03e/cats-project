@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Soyuz+Grotesk&display=swap" rel="stylesheet');
+@import url("https://fonts.cdnfonts.com/css/soyuz-grotesk");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-color: #f7d4c6;
+  --main-color: #fbefdf;
+  --button-color: #e68380;
+  --text-color: #474646;
+}
+
+html {
+  background-color: var(--main-color);
+  color: var(--text-color);
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 40px;
+  font-family: "Soyuz Grotesk";
+  @apply leading-10;
+}

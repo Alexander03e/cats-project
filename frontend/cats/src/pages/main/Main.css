@@ -1,0 +1,8 @@
+.notice {
+  background-color: var(--header-color);
+  width: 35em;
+  padding: 2.6em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2em;
+}
