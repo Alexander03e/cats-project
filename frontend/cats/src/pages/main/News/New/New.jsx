@@ -3,13 +3,13 @@
 const New = ({item}) => {
     
     return (
-        <div className="new">
-            <div new-img-container>
-                <img src={item.img} alt="" />
+        <div className="new flex-1">
+            <div className="new-img-container">
+                <img className=''src={item.img} alt="" />
             </div>
-            <div className="item-content p-10 ">
+            <div className="item-content p-6 ">
                 <h1>{item.title}</h1>
-                <p className="pt-8">{item.desc}</p>
+                <p className="pt-5">{item.desc}</p>
             </div>
         </div>
     )

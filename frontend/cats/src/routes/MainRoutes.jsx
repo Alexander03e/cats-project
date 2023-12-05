@@ -12,6 +12,7 @@ import Projects from '../pages/projects/Projects'
 import AnimalDetail from '../components/Animals/Animal/AnimalDetail/AnimalDetail'
 import ProjectsList from '../pages/projects/ProjectsList'
 import Departed from '../pages/departed/Departed'
+import Profile from '../pages/profile/Profile'
 
 const MainRoutes = (props) => {
 
@@ -25,9 +26,10 @@ const MainRoutes = (props) => {
         <Route path = "contacts" element = {<Contacts />} />
         <Route path = "about" element = {<About />} />
         <Route path = "arrieved/" element = {<Arrieved cats = {props.store.cats}/> } />
-        {/* <Route path = "/animal/:animalid" element ={<AnimalDetail />} /> */}
+        <Route path = "/animal/:animalid" element ={<AnimalDetail cats={props.store.cats}/>} />
         <Route path ='projects' element = {<ProjectsList projects = {props.store.projects}/>} />
         <Route path = 'departed' element = {<Departed departed = {props.store.departed}/>} />
+        <Route path ='/profile' element = {<Profile />}/>
     </Routes>
 
     )

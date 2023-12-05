@@ -11,10 +11,9 @@ const Animal = (props) => {
     return (
         <div className="animal flex flex-col">
             <div className ='animal-img-container'>
-                <NavLink to={`/animal/${props.index}`}><img src="/img/help-info/image 25.png" alt="" /></NavLink>
-                
+                <NavLink to={`/animal/${props.cat.id}`}><img src="/img/help-info/image 25.png" alt="" /></NavLink>
             </div>
-            <div className='flex justify-between p-4'>
+            <div className='flex justify-between p-4 items-center'>
                 <h1 className="mb-4 mt-2">{props.cat.name}</h1>
                 <Status color={props.cat.status_code == 1 ? 'red' : props.cat.status_code == 2 ? 'yellow' : 'lightgreen'}/>
             </div>

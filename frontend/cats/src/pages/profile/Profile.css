@@ -1,0 +1,7 @@
+.profile-content {
+  background-color: var(--header-color);
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  border-radius: 3em;
+}

@@ -14,7 +14,7 @@ const Animals = ({cats,children}) => {
                     
                     return (
 
-                    <Animal cat={cat} key ={index} index = {index} children = {children}/>
+                        <Animal cat={cat} key ={index} index = {index} children = {children}/>
                 
                     )
                 })

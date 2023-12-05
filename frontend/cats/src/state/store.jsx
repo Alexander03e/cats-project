@@ -2,6 +2,7 @@
 export const store = {
     cats: [
         {
+            id:1,
             name: 'Бусинка',
             status: 'здорова',
             status_code: 1,
@@ -10,6 +11,7 @@ export const store = {
             description: 'без породы'
         },
         {
+            id: 2,
             name: 'Лев',
             status: 'болен',
             status_code: 2,
@@ -59,6 +61,11 @@ export const store = {
     news:[
         {
             title: 'новость',
+            img: '/img/help-info/image 25.png',
+            desc:'блаблабал'
+        },
+        {
+            title: 'новость 1',
             img: '/img/help-info/image 25.png',
             desc:'блаблабал'
         },

@@ -4,13 +4,13 @@ import NewList from './New/NewList'
 const News = ({news}) => {
     
     return (
-        <section className="news mb-20">
-            <div className='news-container flex justify-between'>
+        <section className="news mb-10">
+            <div className='news-container gap-20 flex justify-between'>
 
                 <New item = {news[0]}/>
 
-                <div className='news-aside flex flex-col'>
-                {news.slice(1).map((item, index) => {
+                <div className='news-aside flex flex-col flex-1'>
+                {news.slice(1,5).map((item, index) => {
                     return (                        
                         <NewList item = {item}/>
                     )
