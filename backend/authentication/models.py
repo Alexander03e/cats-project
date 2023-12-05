@@ -10,7 +10,7 @@ class User(AbstractUser):
     email = models.EmailField(verbose_name='Email', unique=True)
     city = models.CharField(verbose_name='Город', max_length=50, blank=True)
 
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['email']
 
     objects = CustomUserManager()
 
