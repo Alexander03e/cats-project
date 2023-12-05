@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Donat
+from .models import Donat, Project
 
 
 class DonatSerializer(serializers.HyperlinkedModelSerializer):
@@ -13,5 +13,11 @@ class DonatSerializer(serializers.HyperlinkedModelSerializer):
             self.Meta.depth = 1
     class Meta:
         model = Donat
-        fields = ['url', 'id', 'summ', 'user']
+        fields = ['url', 'id', 'summ', 'user', 'project']
         depth = 1
+
+
+class ProjectSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Project
+        fields = ['url', 'id', 'title', 'goal', 'current']

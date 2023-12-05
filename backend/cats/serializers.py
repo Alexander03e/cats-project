@@ -5,12 +5,14 @@ from .models import Cat, AdoptionApplication
 
 
 class CatSerializer(serializers.HyperlinkedModelSerializer):
-    date = serializers.DateField(format="%d-%m-%Y", input_formats=['%d-%m-%Y', 'iso-8601'])
+    birth_date = serializers.DateField(format="%d-%m-%Y", input_formats=['%d-%m-%Y', 'iso-8601'])
+    receipt_date = serializers.DateField(format="%d-%m-%Y", input_formats=['%d-%m-%Y', 'iso-8601'])
     class Meta:
         model = Cat
         fields = [
-            'url', 'id', 'cat_name', 'breed', 'age', 'photo', 'health_status', 
-            'gender', 'sterilization', 'date', 'diagnosis', 'status'
+            'url', 'id', 'birth_date', 'age', 'name', 'receipt_date', 'gender',
+            'color', 'breed', 'photo', 'health_status', 
+            'sterilization', 'address', 'diagnosis', 'status'
             ]
 
 
