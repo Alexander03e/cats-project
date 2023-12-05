@@ -32,11 +32,11 @@ const Header = () => {
                     
                     {login ? (<div className="flex">
                         <NavLink to="/profile" className="singin">личный кабинет</NavLink>
-                        <NavLink to="/logout" className="singup ml-12">выйти</NavLink>
+                        <NavLink to="/" onClick={() => {setLogin(false)}} className="singup ml-12">выйти</NavLink>
                     </div>) : (
                         <div className="flex">
                         <NavLink to="/singin" className="singin">вход</NavLink>
-                        <NavLink to="/registration" className="singup ml-12">регистрация</NavLink>
+                        <NavLink to="/registration"  className="singup ml-12">регистрация</NavLink>
                     </div>
                     )}
                     

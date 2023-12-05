@@ -1,13 +1,13 @@
-import Button from "../Button/Button"
+
 import './HelpForm.css'
 import React from 'react'
+import Button from "../../components/Button/Button"
 
 const HelpForm = (props) => {
     const [modalStatus, setModalStatus] = React.useState(false)
 
     const popUp = () => {
-        setModalStatus(true)
-        alert('Спасибо за помощь!')
+        setModalStatus(!modalStatus)
     }
     return (
         <>
@@ -26,6 +26,10 @@ const HelpForm = (props) => {
                 />
                 <Button onClick = {popUp}>Хочу помочь!</Button>
             </form>
+            {modalStatus && (<div className="modal">
+                Модальное окно
+                <Button onClick = {() => (setModalStatus(false))}>Закрыть</Button>
+            </div>)}
         
         </>
     )
