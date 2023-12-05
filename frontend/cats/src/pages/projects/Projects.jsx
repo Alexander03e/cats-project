@@ -3,28 +3,35 @@ import './Projects.css'
 
 
 
-const Projects = () => {
 
+const Projects = ({projects}) => {
+        
     return (
-        <>
-            <Project> 
-                <div className="project-img-wrapper">
-                    <img className="project-img" src="/img/help-info/image 25.png" alt="" />
-                </div>
-                <div className="project-content">
-                    <h1 className="mb-10">Сбор средств на отделку вирусного отделения</h1>
-                    <p>К сожалению, наше кожное отделение совсем скоро не сможет принимать пациентов, которые так нуждаются в помощи... Поэтому было принято решение делать ремонт!</p>
-                
-                <div className="project-progress flex flex-col ">
-                    <div className = 'progress-bar'></div>
-                    <div className="project-per flex justify-between">
-                        <p>100%</p>
-                        <p>moneys</p>
+        <div className="flex justify-between">
+        {projects.map((project, index) => {
+            return (
+                <Project key={index} project = {project}>
+                    <div className="project-img-wrapper">
+                        <img className="project-img" src={project.img} alt="" />
                     </div>
-                </div>
-                </div>
-            </Project>
-        </>
+                    <div className="project-content">
+                        <h1 className="mb-10 h-20">{project.title}</h1>
+                        <p className="h-24">{project.description}</p>
+                    
+                    <div className="project-progress flex flex-col ">
+                        <div className = 'progress-bar' style={{width: Math.floor(project.current_sum/project.total_sum*100)*5}}></div>
+                        <div className="project-per flex justify-between">
+                            <p>{Math.floor(project.current_sum/project.total_sum*100)}%</p>
+                            <p>{project.current_sum} из {project.total_sum}</p>
+                        </div>
+                    </div>
+                    </div>
+                </Project>
+            )
+
+        })}
+
+        </div>
     )
 }
 

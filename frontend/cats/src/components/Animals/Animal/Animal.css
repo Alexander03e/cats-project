@@ -1,0 +1,6 @@
+.animal {
+  background-color: var(--header-color);
+
+  width: 32%;
+  border-radius: 3em;
+}

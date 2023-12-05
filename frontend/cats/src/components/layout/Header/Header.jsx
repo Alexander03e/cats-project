@@ -1,9 +1,13 @@
 import { NavLink } from 'react-router-dom'
 import './Header.css'
 import Button from '../../Button/Button'
+import scroll from 'react-scroll'
 
 const Header = () => {
-    
+    const scrollToBottom = () => {
+        alert('efw')
+        
+    }
 
     return (
         <div className='header'>
@@ -14,7 +18,7 @@ const Header = () => {
                     <div className="nav-info">
                         <div className='nav-info__item'>
                             <img className='icon' src="/img/header/vector_3.png" alt="" />
-                            <p className=''>+7(000)000-00-00</p>
+                            <p onClick={scrollToBottom} className=''>+7(000)000-00-00</p>
                         </div>
                         <div className='nav-info__item'>
                             <img className ='icon' src="/img/header/vector_2.png" alt="sdfsd" />

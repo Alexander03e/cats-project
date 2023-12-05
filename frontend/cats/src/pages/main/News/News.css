@@ -1,0 +1,18 @@
+.new {
+  background-color: var(--header-color);
+  border-radius: 3em;
+  width: 45%;
+  height: 100%;
+}
+.news-aside {
+  width: 45%;
+  height: 100%;
+}
+.img-list-container {
+  height: 30%;
+  overflow: hidden;
+}
+
+.news {
+  height: 30em;
+}

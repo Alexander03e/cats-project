@@ -1,0 +1,9 @@
+.status {
+  width: 20px;
+  height: 20px;
+  border-radius: 1em;
+}
+.animal button {
+  margin: 0 auto;
+  width: 22em;
+}

@@ -5,19 +5,19 @@ import HelpForm from '../../components/HelpForm/HelpForm'
 import Animals from '../../components/Animals/Animals'
 import Projects from '../projects/Projects'
 
-const Main = () => {
+const Main = (props) => {
 
     return (
         <section className="main">
             <div className="container">
-                <News />
+                <News news={props.store.news}/>
                 <h1 className='mb-10'>проекты</h1><br />
-                <Projects />
+                <Projects projects = {props.store.projects}/>
                 <h1 className='mt-24'>наши животные</h1><br />
-                <Animals />
+                <Animals cats = {props.store.cats}/>
                 <br />
-                <div class='flex justify-between'>
-                    <HelpForm >оказать помощь животным</HelpForm>
+                <div id = 'help'class='flex justify-between'>
+                    <HelpForm>оказать помощь животным</HelpForm>
                     <div class='notice'>
                         <h1 className='mb-12'>помощь вещами</h1>
                         <p>Приюту СРОЧНО необходимы:</p>

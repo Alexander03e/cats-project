@@ -1,6 +1,5 @@
 .progress-bar {
   background-color: var(--button-color);
-  width: 100%;
   height: 5px;
   margin-bottom: 0.4em;
 }

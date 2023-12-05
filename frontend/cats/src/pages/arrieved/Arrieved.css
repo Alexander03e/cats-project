@@ -1,0 +1,13 @@
+.search {
+  border-radius: 3em;
+  width: 30em;
+  background-color: var(--header-color);
+}
+
+.filters div {
+  background-color: var(--header-color);
+  border-radius: 2em;
+}
+.filters__item {
+  @apply flex justify-between w-48 px-5 py-2 items-center;
+}

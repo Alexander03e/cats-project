@@ -4,12 +4,12 @@ import Footer from './components/layout/Footer/Footer'
 import { Route, Routes } from 'react-router-dom'
 import MainRoutes from './routes/MainRoutes'
 
-function App() {
+function App(props) {
 
   return (
     <>
       <Header />
-      <MainRoutes />
+      <MainRoutes store = {props.store}/>
       <Footer />
     </>
   )

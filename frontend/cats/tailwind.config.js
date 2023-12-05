@@ -9,6 +9,9 @@ export default {
       sans : ['Montserrat','Soyuz Grotesk','Arial']
     },
     extend: {
+      colors: {
+        backgroundColor: 'green'
+      },
       sans: 'Soyuz+Grotesk'
     },
   },
