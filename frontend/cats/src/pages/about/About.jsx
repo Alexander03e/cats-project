@@ -3,19 +3,7 @@ import axios from 'axios'
 import { useEffect } from 'react'
 
 const About = () => {
-    // useEffect(async () => {
-    //     await axios.post('http://127.0.0.1:8000/api/token/', {
-    //       username: 'admin',
-    //       password: 'admin',
-    //     }).then(res=> console.log(res.data))
-        
-    //     axios.get('http://127.0.0.1:8000/api/cats/', {
-    //         headers: {
-    //             Authorization: "Token 5820507d5a2d794ea1eab09eee6a1197a2583b3c"
-    //         }
-    //     }).then(res=>console.log(res))
-      
-    //   },[])
+    
 
 
     return (

@@ -6,7 +6,7 @@ const Departed = ({departed}) => {
     return (
         <div className="container">
                 <h1 className="mb-12">выбывшие</h1>
-            <div className="departed-cats flex gap-4">
+            <div className="departed-cats flex gap-4 flex-wrap">
                 {departed.map(departed_cat => {
                     return (
 

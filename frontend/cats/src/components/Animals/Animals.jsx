@@ -8,13 +8,13 @@ const Animals = ({cats,children}) => {
     
 
     return (
-        <section className="animals flex gap-6 mb-20 mt-10">
+        <section className="animals flex gap-6 mb-20 mt-10 flex-wrap">
             {
                 cats.map((cat, index) => {
                     
                     return (
 
-                        <Animal cat={cat} key ={index} index = {index} children = {children}/>
+                        <Animal cat={cat} key ={cat.id} index = {index} children = {children}/>
                 
                     )
                 })

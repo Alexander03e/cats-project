@@ -2,6 +2,7 @@
   background-color: var(--button-color);
   height: 5px;
   margin-bottom: 0.4em;
+  border-radius: 5px;
 }
 .project-content {
   padding: 1.5em;

@@ -10,9 +10,9 @@ const Main = (props) => {
     return (
         <section className="main">
             <div className="container">
-                <News news={props.store.news}/>
+                <News news={props.store.cats}/>
                 <h1 className='mb-10'>проекты</h1><br />
-                <Projects projects = {props.store.projects}/>
+                <Projects projects = {props.store.projects} donats={props.store.donats}/>
                 <h1 className='mt-24'>наши животные</h1><br />
                 <Animals cats = {props.store.cats}/>
                 <br />

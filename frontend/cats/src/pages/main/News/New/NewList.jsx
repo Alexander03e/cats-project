@@ -8,7 +8,7 @@ const NewList = ({item}) => {
             <div className="img-list-container">
                 <img src={item.img} alt="" />
             </div>
-            <h1>{item.title}</h1>
+            <h1>{item.name}</h1>
         </div>
     )
 }

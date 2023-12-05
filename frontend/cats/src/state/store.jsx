@@ -5,8 +5,9 @@ export const store = {
         {
             id:1,
             name: 'Бусинка',
-            status: 'здорова',
-            status_code: 1,
+            health_status: 'здорова',
+            status: 1,
+            health_status: 1,
             age: '8 месяцев',
             breed: 'девочка',
             description: 'без породы'
@@ -14,8 +15,8 @@ export const store = {
         {
             id: 2,
             name: 'Лев',
-            status: 'болен',
-            status_code: 2,
+            status: 0,
+            health_status: 2,
             age: '5 лет',
             breed: 'мальчик',
             description: 'без породы'
@@ -85,5 +86,8 @@ export const store = {
             img: '/img/help-info/image 25.png',
             desc:'блаблабал'
         }
+    ],
+    donats:[
+        
     ]
 }
