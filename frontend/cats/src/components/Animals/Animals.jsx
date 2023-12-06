@@ -5,7 +5,7 @@ import Animal from './Animal/Animal';
 
 const Animals = ({cats,children}) => {
     
-    
+    console.log(cats)
 
     return (
         <section className="animals flex gap-6 mb-20 mt-10 flex-wrap">
