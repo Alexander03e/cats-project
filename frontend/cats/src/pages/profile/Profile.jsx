@@ -2,7 +2,6 @@ import HelpForm from '../../components/HelpForm/HelpForm';
 import './Profile.css'
 
 const Profile = ({user}) => {
-    console.log(user)
     return (
         <div className="container">
             <div className="profile-page flex gap-24">
