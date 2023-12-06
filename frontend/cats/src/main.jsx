@@ -32,22 +32,27 @@ const getStore = async () => {
   })
   console.log(store.projects)
   })
-  axios.get(donatsURL, {
-  headers: {
-    Authorization: `Token ${token}`
-  }
-  }).then(res=>{
-  res.data.map(don => {
-    console.log(don)
-    // store.donats.push(don)
-  })
-  })
+  // axios.get(donatsURL, {
+  // headers: {
+  //   Authorization: `Token ${token}`
+  // }
+  // }).then(res=>{
+  // res.data.map(don => {
+  //   console.log(don)
+  //   // store.donats.push(don)
+  // })
+  // })
 }
 getStore()
-ReactDOM.createRoot(document.getElementById('root')).render(
-  
+function renderContent () {
+  setTimeout(() => {
+    ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <App store = {store}/>
     </BrowserRouter>
- 
-)
+    )
+  }, 1500)
+}
+
+renderContent()
+

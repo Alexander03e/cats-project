@@ -1,7 +1,10 @@
 
 
 export const store = {
-    cats: [],
-    projects: [],
-    donats: [],
+    cats: [
+    ],
+    projects: [
+    ],
+    donats:[
+    ]
 }
