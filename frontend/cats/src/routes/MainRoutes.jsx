@@ -32,7 +32,7 @@ const MainRoutes = (props) => {
         <Route path = "/animal/:animalid" element ={<AnimalDetail cats={props.store.cats}/>} />
         <Route path ='projects' element = {<ProjectsList projects = {props.store.projects} donats={props.store.donats}/>} />
         <Route path = 'departed' element = {<Departed departed = {departed}/>} />
-        <Route path ='/profile' element = {<Profile />}/>
+        <Route path ='/profile' element = {<Profile user={props.store.user}/>}/>
     </Routes>
 
     )

@@ -2,11 +2,13 @@ import { NavLink } from 'react-router-dom'
 import './Header.css'
 import Button from '../../Button/Button'
 import scroll from 'react-scroll'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const Header = () => {
-    const [login, setLogin] = useState(true)
-
+const Header = ({store}) => {
+    const [login, setLogin] = useState(window.localStorage.getItem('token'))
+    useEffect(() => {
+        setLogin(window.localStorage.getItem('token'))
+    }, [store.user])
     return (
         <div className='header'>
         <div className="container">
@@ -30,9 +32,9 @@ const Header = () => {
                         <a href='#' className='-ml-5'><img src="/img/header/vector.png" className='w-6' alt="" /></a>
                     </div>
                     
-                    {login ? (<div className="flex">
+                    { login !== null ? (<div className="flex">
                         <NavLink to="/profile" className="singin">личный кабинет</NavLink>
-                        <NavLink to="/" onClick={() => {setLogin(false)}} className="singup ml-12">выйти</NavLink>
+                        <NavLink to="/" onClick={() => {window.localStorage.removeItem('token'); setLogin(null); store.user = {}} } className="singup ml-12">выйти</NavLink>
                     </div>) : (
                         <div className="flex">
                         <NavLink to="/singin" className="singin">вход</NavLink>

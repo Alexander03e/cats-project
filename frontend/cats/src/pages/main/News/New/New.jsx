@@ -8,8 +8,8 @@ const New = ({item}) => {
                 <img className=''src='' alt="фото кошки" />
             </div>
             <div className="item-content p-6 ">
-                <h1>{item.name}</h1>
-                <p className="pt-5">{item.age}, {item.breed}, {item.color}</p>
+                <h1>{item?.name}</h1>
+                <p className="pt-5">{item?.age}, {item?.breed}, {item?.color}</p>
             </div>
         </div>
     )

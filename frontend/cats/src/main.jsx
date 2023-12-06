@@ -8,15 +8,16 @@ import axios from 'axios'
 
 
 const token = localStorage.getItem('token')
-const catsURL = 'http://127.0.0.1:8000/api/cats'
-const projectsURL = 'http://127.0.0.1:8000/api/projects'
-const donatsURL = 'http://127.0.0.1:8000/api/donats'
+const catsURL = 'http://127.0.0.1:8000/api/cats/'
+const projectsURL = 'http://127.0.0.1:8000/api/projects/'
+const donatsURL = 'http://127.0.0.1:8000/api/donats/'
 const getStore = async () => {
   axios.get(catsURL, {
     headers: {
         Authorization: `Token ${token}`
     }
   }).then(res=>{
+    console.log(res.data)
   res.data.map(cat => {
     store.cats.push(cat)            
   })
