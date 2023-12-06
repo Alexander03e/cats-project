@@ -5,7 +5,7 @@ const New = ({item}) => {
     return (
         <div className="new flex-1">
             <div className="new-img-container">
-                <img className=''src={item.img} alt="" />
+                <img className=''src='' alt="фото кошки" />
             </div>
             <div className="item-content p-6 ">
                 <h1>{item.name}</h1>
