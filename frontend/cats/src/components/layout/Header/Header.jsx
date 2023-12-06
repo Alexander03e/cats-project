@@ -2,12 +2,10 @@ import { NavLink } from 'react-router-dom'
 import './Header.css'
 import Button from '../../Button/Button'
 import scroll from 'react-scroll'
+import { useState } from 'react'
 
 const Header = () => {
-    const scrollToBottom = () => {
-        alert('efw')
-        
-    }
+    const [login, setLogin] = useState(true)
 
     return (
         <div className='header'>
@@ -18,7 +16,7 @@ const Header = () => {
                     <div className="nav-info">
                         <div className='nav-info__item'>
                             <img className='icon' src="/img/header/vector_3.png" alt="" />
-                            <p onClick={scrollToBottom} className=''>+7(000)000-00-00</p>
+                            <p className=''>+7(000)000-00-00</p>
                         </div>
                         <div className='nav-info__item'>
                             <img className ='icon' src="/img/header/vector_2.png" alt="sdfsd" />
@@ -31,10 +29,17 @@ const Header = () => {
                         <a href='#'><img src="/img/header/vector_1.png" className='w-8' alt="" /></a>
                         <a href='#' className='-ml-5'><img src="/img/header/vector.png" className='w-6' alt="" /></a>
                     </div>
-                    <div className="flex">
+                    
+                    {login ? (<div className="flex">
+                        <NavLink to="/profile" className="singin">личный кабинет</NavLink>
+                        <NavLink to="/" onClick={() => {setLogin(false)}} className="singup ml-12">выйти</NavLink>
+                    </div>) : (
+                        <div className="flex">
                         <NavLink to="/singin" className="singin">вход</NavLink>
-                        <NavLink to="/registration" className="singup ml-12">регистрация</NavLink>
+                        <NavLink to="/registration"  className="singup ml-12">регистрация</NavLink>
                     </div>
+                    )}
+                    
                 </nav>
                 <nav className='nav-menu pt-2'>
                     <NavLink to ='/'> <img src="img/header/logo.png" alt="" /> </NavLink>

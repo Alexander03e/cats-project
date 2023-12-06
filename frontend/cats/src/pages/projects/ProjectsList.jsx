@@ -1,11 +1,11 @@
 import Projects from './Projects'
 
 
-const ProjectsList = ({projects}) => {
-
+const ProjectsList = ({projects,donats}) => {
+    
     return (
         <div className='container'>
-        <Projects projects = {projects}/>
+        <Projects projects = {projects} donats={donats}/>
         </div>
     )
 }

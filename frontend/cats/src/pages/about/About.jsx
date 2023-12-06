@@ -1,6 +1,10 @@
 import './About.css'
+import axios from 'axios'
+import { useEffect } from 'react'
 
 const About = () => {
+    
+
 
     return (
         <section className="about">

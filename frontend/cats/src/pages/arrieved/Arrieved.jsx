@@ -21,8 +21,23 @@ const Arrieved = ({cats}) => {
         setSearchRes(filteredResults)
         
     }
+    const  [filteredStatus, setFilteredStatus] = React.useState(' ') 
+    // let arrieved_cats = cats.filter(cat => cat.status == 0)
 
-
+    let pressed = false;
+    let newCats = cats
+    // let newCats = arrieved_cats.filter(cat => cat.status == 0)
+    filteredStatus != ' ' ? newCats = cats.filter((cat) => cat.health_status == filteredStatus) : newCats = cats
+    
+    
+    const SortStatus = (status) => {
+        setFilteredStatus(status)
+        //pressed = !pressed
+        //pressed ? setFilteredStatus(' ') : setFilteredStatus(status)
+        //filteredStatus != ' ' ? setFilteredStatus(' ') : setFilteredStatus(status)
+        console.log(newCats)
+    }
+    
     return (
         <div className='container'>
         <h1 className='mb-12'>Наши животные</h1>
@@ -38,20 +53,20 @@ const Arrieved = ({cats}) => {
                 })}
         </ul>
         <div className="filters flex gap-8 mt-16">
-            <div className="filters__item">
+            <div onClick ={() => SortStatus(1)} style ={{backgroundColor: filteredStatus == 1 ? 'var(--button-color)' : ''}} className="filters__item cursor-pointer">
                 <p>здорова</p>
                 <Status color={'#9cca86'} />
             </div>
-            <div className="filters__item">
+            <div onClick ={() => SortStatus(2)} style ={{backgroundColor: filteredStatus == 2 ? 'var(--button-color)' : ''}} className="filters__item cursor-pointer">
                 <p>лечится</p>
                 <Status color={'#d3b15a'} />
             </div>
-            <div className="filters__item">
+            <div onClick ={() => SortStatus(3)} style ={{backgroundColor: filteredStatus == 3 ? 'var(--button-color)' : ''}} className="filters__item cursor-pointer">
                 <p>нужна помощь</p>
                 <Status color={'#d35a5a'} />
             </div>
         </div>
-        <Animals cats = {cats}>
+        <Animals cats = {newCats}>
             <Button>Подарить дом!</Button>
         </Animals>
         </div>

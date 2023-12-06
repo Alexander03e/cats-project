@@ -1,22 +1,24 @@
 import './Main.css'
 import News from './News/News'
-import React from 'react'
+import React, { useEffect } from 'react'
 import HelpForm from '../../components/HelpForm/HelpForm'
 import Animals from '../../components/Animals/Animals'
 import Projects from '../projects/Projects'
+import axios from 'axios'
+import {store} from '../../state/store'
 
 const Main = (props) => {
-
+    
     return (
         <section className="main">
             <div className="container">
-                <News news={props.store.news}/>
+                <News news={props.store.cats}/>
                 <h1 className='mb-10'>проекты</h1><br />
-                <Projects projects = {props.store.projects}/>
+                <Projects projects = {props.store.projects} donats={props.store.donats}/>
                 <h1 className='mt-24'>наши животные</h1><br />
                 <Animals cats = {props.store.cats}/>
                 <br />
-                <div id = 'help'class='flex justify-between'>
+                <div id = 'help' className='flex justify-between'>
                     <HelpForm>оказать помощь животным</HelpForm>
                     <div class='notice'>
                         <h1 className='mb-12'>помощь вещами</h1>
