@@ -10,6 +10,7 @@ import axios from 'axios'
 const token = localStorage.getItem('token')
 const catsURL = 'http://127.0.0.1:8000/api/cats/'
 const projectsURL = 'http://127.0.0.1:8000/api/projects/'
+const profileURL = 'http://127.0.0.1:8000/api/users/profile/'
 const donatsURL = 'http://127.0.0.1:8000/api/donats/'
 const getStore = async () => {
   axios.get(catsURL, {
@@ -33,6 +34,12 @@ const getStore = async () => {
   })
   console.log(store.projects)
   })
+  axios.get(profileURL, {
+    headers: {
+        Authorization: `Token ${token}`
+    }
+  }).then(res=>{ store.user = {...res.data} })
+  
   // axios.get(donatsURL, {
   // headers: {
   //   Authorization: `Token ${token}`
