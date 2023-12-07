@@ -10,7 +10,7 @@ class UserCreationForm(forms.ModelForm):
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Подтвердите пароль', widget=forms.PasswordInput)
     full_name = forms.CharField(label='ФИО')
-    email = forms.EmailField(label='Email', required=False)
+    email = forms.EmailField(label='Email')
     city = forms.CharField(label='Город', required=False)
 
     class Meta:
