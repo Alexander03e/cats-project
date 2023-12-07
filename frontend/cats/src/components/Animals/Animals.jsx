@@ -7,6 +7,9 @@ import axios from 'axios';
 
 const Animals = ({cats, onGiveHouse}) => {
     const giveHouse = async (cat) => {
+        if (window.location.href == 'http://localhost:5173/'){
+            alert('asd')
+        }
         console.log(cat)
         if (localStorage.getItem('token')!==null) {
             await axios
@@ -35,7 +38,7 @@ const Animals = ({cats, onGiveHouse}) => {
                     return (
 
                         <Animal cat={cat} key ={cat.id} index = {index}>
-                            <Button onClick={() => giveHouse(cat)}>Подарить дом!</Button>
+                            {window.location.href == 'http://localhost:5173/' ? '' : <Button onClick={() => giveHouse(cat)}>Подарить дом!</Button> }
                         </Animal>
                 
                     )

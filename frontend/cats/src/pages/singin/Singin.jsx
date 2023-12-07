@@ -7,7 +7,7 @@ const Singin = ({user}) => {
         username: '',
         password: '',
     })
-    const [r, setR] = useState('/singin')
+    
     const [error, setError] = useState(false)
     const login = async (e) => {
         console.log(state)
