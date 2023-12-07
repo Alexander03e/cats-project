@@ -10,7 +10,7 @@ export default {
     },
     extend: {
       colors: {
-        backgroundColor: 'green'
+        backgroundColor: '#9cca86'
       },
       sans: 'Soyuz+Grotesk'
     },

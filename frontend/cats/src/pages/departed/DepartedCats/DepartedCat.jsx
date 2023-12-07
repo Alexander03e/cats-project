@@ -11,7 +11,7 @@ const DepartedCat = (props) => {
                 <h1 className="mb-4 mt-2">{props.cat.name}</h1>
                 <Status color={props.cat.health_status == 1 ? '#9cca86' : props.cat.health_status == 2 ? '#d3b15a' : '#d35a5a'}/>
             </div>
-            <p className="pl-6 pr-6 pb-12">выбыл(а) {props.cat.departed_date}</p>
+            <p className="pl-6 pr-6 pb-12">выбыл(а) {props.cat.receipt_date}</p>
             {props.children}<br /><br />    
         </div>
     )

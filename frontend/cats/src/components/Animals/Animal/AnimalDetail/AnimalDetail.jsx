@@ -45,7 +45,7 @@ const AnimalDetail = ({cats}) => {
                     <p>Стериализована: {currentCat.sterilization}</p>
                     <p>Найдена по адресу: {currentCat.address}</p>
                     <p className='mb-16'>Диагноз при поступлении: {currentCat.diagnosis}</p>
-                    <Button onClick={giveHouse}>Подарить дом !</Button>
+                    {currentCat.status == 1 ? <Button onClick={giveHouse}>Подарить дом !</Button> : <p className='px-6 py-3 rounded-3xl text-center bg-backgroundColor w-40'>Дом подарен</p>}
                     {showModal && <Modal content='ваша заявка принята! ожидайте письмо на почту.' setOpened={setShowModal} />}
                 </div>
             </div>
