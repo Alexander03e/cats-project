@@ -6,30 +6,20 @@ import MainRoutes from './routes/MainRoutes'
 import axios from 'axios'
 import { store } from './state/store'
 function App(props) {
-  const [token, setToken] = useState('')
 
-  const catsURL = 'http://127.0.0.1:8000/api/cats'
-  const projectsURL = 'http://127.0.0.1:8000/api/projects'
-  const donatsURL = 'http://127.0.0.1:8000/api/donats'
-
-  useEffect(() => {
-    const getData = async () => {
-      await axios.post('http://127.0.0.1:8000/api/token/', {
-        username: 'admin',
-        password: 'admin',
-      }).then(res=> {
-        setToken(res.data['token'])
-        localStorage.setItem('token', res.data['token'])
-        })
-    }
-
-    getData()
-  
-  },[])
-  
+  // useEffect(()=>{
+  //   axios.post('http://127.0.0.1:8000/api/token/', {
+  //     username: 'admin',
+  //     password: 'admin'
+  //   })
+  //   .then(res => {
+  //     console.log(res.data)
+  //     localStorage.setItem('token', res.data['token'])
+  //   })
+  // })
   return (
     <>
-      <Header />
+      <Header store = {store}/>
       <MainRoutes store = {store}/>
       <Footer />
     </>

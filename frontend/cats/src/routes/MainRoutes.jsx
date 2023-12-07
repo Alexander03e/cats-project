@@ -22,17 +22,17 @@ const MainRoutes = (props) => {
     return (
     <Routes>
         <Route path = "/" element = {<Main store = {props.store}/>} />
-        <Route path = "want-help" element = {<HelpForm />} />
+        <Route path = "want-help" element = {<HelpForm user ={props.store.user}/>} />
         <Route path = "registration" element = {<Registration />} />
-        <Route path = "singin" element = {<Singin />} />
+        <Route path = "singin" element = {<Singin user = {props.store.user}/>} />
         <Route path = "help-info" element = {<HelpInfo />} />
         <Route path = "contacts" element = {<Contacts />} />
         <Route path = "about" element = {<About />} />
-        <Route path = "arrieved/" element = {<Arrieved cats = {arrieved}/> } />
-        <Route path = "/animal/:animalid" element ={<AnimalDetail cats={props.store.cats}/>} />
+        <Route path = "arrieved/" element = {<Arrieved cats = {arrieved} user ={props.store.user}/> } />
+        <Route path = "/animal/:animalid" element ={<AnimalDetail cats={props.store.cats} user ={props.store.user}/>} />
         <Route path ='projects' element = {<ProjectsList projects = {props.store.projects} donats={props.store.donats}/>} />
         <Route path = 'departed' element = {<Departed departed = {departed}/>} />
-        <Route path ='/profile' element = {<Profile />}/>
+        <Route path ='/profile' element = {<Profile user={props.store.user}/>}/>
     </Routes>
 
     )

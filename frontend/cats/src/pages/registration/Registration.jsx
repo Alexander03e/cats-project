@@ -1,7 +1,28 @@
 import './Registration.css'
+import axios from 'axios'
 import Button from '../../components/Button/Button'
+import { useState } from 'react'
 const Registration = () => {
-        
+    const [state, setState] = useState({
+        username: '',
+        password1: '',
+        password2: '',
+        fullName: '',
+        email: '',
+        city: ''
+    })
+    const register = () => {
+        axios
+            .post('http://localhost:8000/api/users/register/', {
+                username: state.username,
+                password: state.password1,
+                full_name: state.fullName,
+                email: state.email,
+                city: state.city
+            })
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err))
+    }
 
     return (
         
@@ -11,6 +32,8 @@ const Registration = () => {
                 <input
                     type="text"
                     name="username"
+                    value={state.username}
+                    onChange={(e) => setState({...state, username: e.target.value})}
                     placeholder="Логин"
                     required
                 />
@@ -18,8 +41,8 @@ const Registration = () => {
                 <input
                     type="password"
                     name="password"
-                    // value={password}
-                    // onChange={handleChange}
+                    value={state.password1}
+                    onChange={(e) => setState({...state, password1: e.target.value})}
                     placeholder="Пароль"
                     required
                 />
@@ -27,8 +50,8 @@ const Registration = () => {
                 <input
                     type="password"
                     name="confirmPassword"
-                    // value={confirmPassword}
-                    // onChange={handleChange}
+                    value={state.password2}
+                    onChange={(e) => setState({...state, password2: e.target.value})}
                     placeholder="Повторите пароль"
                     required
                 />
@@ -36,8 +59,8 @@ const Registration = () => {
                 <input
                     type="text"
                     name="fullName"
-                    // value={fullName}
-                    // onChange={handleChange}
+                    value={state.fullName}
+                    onChange={(e) => setState({...state, fullName: e.target.value})}
                     placeholder="ФИО"
                     required
                 />
@@ -45,8 +68,8 @@ const Registration = () => {
                 <input
                     type="email"
                     name="email"
-                    // value={email}
-                    // onChange={handleChange}
+                    value={state.email}
+                    onChange={(e) => setState({...state, email: e.target.value})}
                     placeholder="Email"
                     required
                 />
@@ -54,13 +77,13 @@ const Registration = () => {
                 <input
                     type="text"
                     name="city"
-                    // value={email}
-                    // onChange={handleChange}
+                    value={state.city}
+                    onChange={(e) => setState({...state, city: e.target.value})}
                     placeholder="С какого вы города?"
                     required
                 />
                 <br />
-      <Button>Зарегистрироваться</Button>
+      <Button onClick={register}>Зарегистрироваться</Button>
     </form>
             </div>
         

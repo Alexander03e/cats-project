@@ -3,8 +3,9 @@ import React from 'react'
 import Animals from '../../components/Animals/Animals'
 import Status from '../../components/Animals/Status'
 import Button from '../../components/Button/Button'
+import Modal from './Modal'
 
-const Arrieved = ({cats}) => {
+const Arrieved = ({cats,user}) => {
 
     
 
@@ -38,8 +39,19 @@ const Arrieved = ({cats}) => {
         console.log(newCats)
     }
     
+    const [openedAuth, setOpenedAuth] = React.useState(false)
+    const [openedSingin, setOpenedSingin] = React.useState(false)
+
+    const giveHouse = () => {
+        localStorage.getItem('token')===null ? setOpenedAuth(true) : setOpenedSingin(true)
+        console.log(localStorage.getItem('token'))
+        console.log(user)
+    }
+
     return (
         <div className='container'>
+            {openedAuth && (<Modal content = 'чтобы забрать котика, авторизуйтесь!' opened = {openedAuth} setOpened ={setOpenedAuth}/>)}
+            {openedSingin && (<Modal content = 'ваша заявка принята! ожидайте письмо на почту.' opened = {openedAuth} setOpened ={setOpenedSingin}/>)}
         <h1 className='mb-12'>Наши животные</h1>
         <div className="search-form flex gap-8">
             <input type='text' className='search py-2 px-4' placeholder='введите текст' value ={searched} onChange={onInputChange} />
@@ -67,7 +79,7 @@ const Arrieved = ({cats}) => {
             </div>
         </div>
         <Animals cats = {newCats}>
-            <Button>Подарить дом!</Button>
+            <Button onClick={giveHouse}>Подарить дом!</Button>
         </Animals>
         </div>
     )

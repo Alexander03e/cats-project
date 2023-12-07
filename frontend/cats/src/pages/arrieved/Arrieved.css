@@ -11,3 +11,15 @@
 .filters__item {
   @apply flex justify-between w-48 px-5 py-2 items-center;
 }
+.modal-content {
+  background-color: var(--main-color);
+}
+.notauth {
+  border-radius: 3em;
+}
+.singin-m {
+  background-color: var(--button-color);
+}
+.singup-m {
+  background-color: var(--header-color);
+}

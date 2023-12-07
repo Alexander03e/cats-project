@@ -14,7 +14,7 @@ const AnimalDetail = ({cats}) => {
     },[])
 
     const giveHouse = () => {
-        alert('Дом подарен!')
+        
     }
 
     return (

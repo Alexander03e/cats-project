@@ -8,17 +8,13 @@ import axios from 'axios'
 
 
 const token = localStorage.getItem('token')
-const catsURL = 'http://127.0.0.1:8000/api/cats'
-const projectsURL = 'http://127.0.0.1:8000/api/projects'
-const donatsURL = 'http://127.0.0.1:8000/api/donats'
+const catsURL = 'http://127.0.0.1:8000/api/cats/'
+const projectsURL = 'http://127.0.0.1:8000/api/projects/'
+const profileURL = 'http://127.0.0.1:8000/api/users/profile/'
+const donatsURL = 'http://127.0.0.1:8000/api/donats/'
 const getStore = async () => {
-  return new Promise(async (resolve, reject) => {
 
-    await axios.get(catsURL, {
-      headers: {
-          Authorization: `Token ${token}`
-      }
-    }).then(res=>{
+    await axios.get(catsURL).then(res=>{
     res.data.map(cat => {
       store.cats.push(cat)            
     })
@@ -38,15 +34,39 @@ const getStore = async () => {
     headers: {
       Authorization: `Token ${token}`
     }
-    }).then(res=>{
-    res.data.map(don => {
-      console.log(don)
-      // store.donats.push(don)
-    })
-    })
-    resolve(store)
+  }).then(res=>{
+    console.log(res.data)
+  res.data.map(cat => {
+    store.cats.push(cat)            
   })
+  console.log(store.cats)
+  })
+  axios.get(projectsURL, {
+    headers: {
+        Authorization: `Token ${token}`
+    }
+  }).then(res=>{
+  res.data.map(project => {
+    store.projects.push(project)
+  })
+  console.log(store.projects)
+  })
+  axios.get(profileURL, {
+    headers: {
+        Authorization: `Token ${token}`
+    }
+  }).then(res=>{ store.user = {...res.data} })
   
+  // axios.get(donatsURL, {
+  // headers: {
+  //   Authorization: `Token ${token}`
+  // }
+  // }).then(res=>{
+  // res.data.map(don => {
+  //   console.log(don)
+  //   // store.donats.push(don)
+  // })
+  // })
 }
 function renderContent () {
   getStore()
@@ -58,6 +78,4 @@ function renderContent () {
     )
   }, 1000)
 }
-
 renderContent()
-
