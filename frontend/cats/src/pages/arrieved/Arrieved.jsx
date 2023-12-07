@@ -42,10 +42,8 @@ const Arrieved = ({cats,user}) => {
     const [openedAuth, setOpenedAuth] = React.useState(false)
     const [openedSingin, setOpenedSingin] = React.useState(false)
 
-    const giveHouse = () => {
+    const giveHouse = async () => {
         localStorage.getItem('token')===null ? setOpenedAuth(true) : setOpenedSingin(true)
-        console.log(localStorage.getItem('token'))
-        console.log(user)
     }
 
     return (
@@ -78,8 +76,7 @@ const Arrieved = ({cats,user}) => {
                 <Status color={'#d35a5a'} />
             </div>
         </div>
-        <Animals cats = {newCats}>
-            <Button onClick={giveHouse}>Подарить дом!</Button>
+        <Animals cats = {newCats} onGiveHouse={giveHouse}>
         </Animals>
         </div>
     )

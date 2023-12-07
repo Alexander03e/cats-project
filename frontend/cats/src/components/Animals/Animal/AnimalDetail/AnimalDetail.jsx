@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './AnimalDetail.css'
 import Button from '../../../../components/Button/Button'
+import axios from 'axios';
 
 const AnimalDetail = ({cats}) => {
     const [currentCat, setCurrentCat] = useState('');
@@ -14,7 +15,17 @@ const AnimalDetail = ({cats}) => {
     },[])
 
     const giveHouse = () => {
-        
+        axios
+            .patch(currentCat?.url, {
+                status: 0,
+                headers: {
+                    Authorization: `Token ${window.localStorage.getItem('token')}`
+                }
+            })
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => console.log(err))
     }
 
     return (
