@@ -26,3 +26,9 @@
 .header {
   margin-bottom: 4em;
 }
+
+.help-link {
+  padding: 0.7em 1.3em;
+  background-color: var(--button-color);
+  border-radius: 3em;
+}

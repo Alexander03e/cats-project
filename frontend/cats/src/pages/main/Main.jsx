@@ -18,7 +18,8 @@ const Main = (props) => {
                 <h1 className='mt-24'>наши животные</h1><br />
                 <Animals cats = {props.store.cats}/>
                 <br />
-                <div id = 'help' className='flex justify-between'>
+                <div id = 'iwanthelp' className='flex justify-between'>
+                    
                     <HelpForm store = {props.store}  get_store={props.get_store}>оказать помощь животным</HelpForm>
                     <div class='notice'>
                         <h1 className='mb-12'>помощь вещами</h1>

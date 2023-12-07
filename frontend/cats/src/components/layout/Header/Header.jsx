@@ -1,16 +1,20 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import './Header.css'
 import Button from '../../Button/Button'
 import scroll from 'react-scroll'
 import { useEffect, useState } from 'react'
+import ScrollToAnchor from './Scroll'
 
 const Header = ({store}) => {
+
+    
     const [login, setLogin] = useState(window.localStorage.getItem('token'))
     useEffect(() => {
         setLogin(window.localStorage.getItem('token'))
     }, [store.user])
     return (
         <div className='header'>
+        <ScrollToAnchor />
         <div className="container">
             
             <div className = 'nav-panel'>
@@ -53,7 +57,7 @@ const Header = ({store}) => {
                         <NavLink to="about">О приюте</NavLink>
                         <NavLink to="contacts">Контакты</NavLink>
                     </div>
-                    <Button><NavLink to='/'>Хочу помочь!</NavLink></Button>
+                    <Link className='help-link' to='/#iwanthelp'>Хочу помочь!</Link>
                 </nav>
             </div>
             </div>

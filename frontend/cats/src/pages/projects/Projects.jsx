@@ -16,7 +16,7 @@ const Projects = ({projects, donats}) => {
             return (
                 <Project key={index} project = {project}>
                     <div className="project-img-wrapper">
-                        <img className="project-img" src={project.img} alt="" />
+                        <img className="project-img" src={project.cover} alt="" />
                     </div>
                     <div className="project-content">
                         <h1 className="mb-10 h-20">{project.title}</h1>

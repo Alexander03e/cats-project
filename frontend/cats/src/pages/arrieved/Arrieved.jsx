@@ -4,7 +4,7 @@ import Animals from '../../components/Animals/Animals'
 import Status from '../../components/Animals/Status'
 import Button from '../../components/Button/Button'
 import Modal from './Modal'
-
+import {NavLink} from 'react-router-dom'
 const Arrieved = ({cats,user}) => {
 
     
@@ -15,9 +15,16 @@ const Arrieved = ({cats,user}) => {
     const onInputChange = (e) => {
         setSearched(e.target.value)
         let value = e.target.value;
-            const filteredResults =  cats.filter((cat) =>
-            cat.name.toLowerCase().includes(value.toLowerCase())
+            const filteredResults =  cats.filter((cat) =>{
+                return (
+
+                    cat.name.toLowerCase().includes(value.toLowerCase())
+                )
+                }
             );
+        filteredResults.map((cat) => {
+            console.log(cat.url)
+        })
         console.log(filteredResults)
         setSearchRes(filteredResults)
         
@@ -55,10 +62,12 @@ const Arrieved = ({cats,user}) => {
             <input type='text' className='search py-2 px-4' placeholder='введите текст' value ={searched} onChange={onInputChange} />
             <Button>Найти</Button>
         </div>
-        <ul>
+        <ul className='mt-4'>
             {searchRes.map((item) => {
                 return (
-                    <li>{item.name}</li>
+                    <div className=''>
+                    <NavLink className='mt-4 border-b-2 border-black' to={`/animal/${item.id}`}>{item.name}</NavLink><br />
+                    </div >
                 )
                 })}
         </ul>

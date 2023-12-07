@@ -3,12 +3,13 @@ import { useParams } from 'react-router-dom';
 import './AnimalDetail.css'
 import Button from '../../../../components/Button/Button'
 import axios from 'axios';
+import Modal from '../../../../pages/arrieved/Modal';
 
 const AnimalDetail = ({cats}) => {
     const [currentCat, setCurrentCat] = useState('');
-
+    const [showModal, setShowModal] = useState(false);
     const { animalid } = useParams();
-
+    
     useEffect(() => {
         setCurrentCat(cats.find(cat => cat.id == animalid))
         console.log(currentCat)
@@ -23,6 +24,8 @@ const AnimalDetail = ({cats}) => {
                 }
             })
             .then(res => {
+                setShowModal(true)
+                window.location.href='http://localhost:5173/arrieved'
                 console.log(res.data)
             })
             .catch(err => console.log(err))
@@ -43,6 +46,7 @@ const AnimalDetail = ({cats}) => {
                     <p>Найдена по адресу: {currentCat.address}</p>
                     <p className='mb-16'>Диагноз при поступлении: {currentCat.diagnosis}</p>
                     <Button onClick={giveHouse}>Подарить дом !</Button>
+                    {showModal && <Modal content='ваша заявка принята! ожидайте письмо на почту.' setOpened={setShowModal} />}
                 </div>
             </div>
         </div>
