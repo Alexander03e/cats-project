@@ -11,13 +11,13 @@ const HelpForm = (props) => {
         setCurSum(e.target.value)
         console.log(curSum)
     }
+        
     const popUp = () => {
         
         setModalStatus(!modalStatus)
-        
         let random_project = Math.floor(Math.random()*(props.store.projects.length))
         
-        
+
         axios.post(`http://127.0.0.1:8000/api/donats/`, {
             project: `${props.store.projects[random_project].url}`,
             user: `http://127.0.0.1:8000/api/users/1/`,

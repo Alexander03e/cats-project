@@ -38,7 +38,7 @@ const Animals = ({cats, onGiveHouse}) => {
                     return (
 
                         <Animal cat={cat} key ={cat.id} index = {index}>
-                            {window.location.href == 'http://localhost:5173/' ? '' : <Button onClick={() => giveHouse(cat)}>Подарить дом!</Button> }
+                            {window.location.href == 'http://localhost:5173/' | window.location.href == 'http://localhost:5173/#iwanthelp'  ? '' : <Button onClick={() => giveHouse(cat)}>Подарить дом!</Button> }
                         </Animal>
                 
                     )
