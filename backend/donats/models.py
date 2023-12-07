@@ -5,6 +5,8 @@ from authentication.models import User
 class Project(models.Model):
     title = models.CharField(verbose_name='Название проекта', max_length=255)
     goal = models.PositiveIntegerField(verbose_name='Цель')
+    description = models.TextField(verbose_name='Описание')
+    cover = models.ImageField(verbose_name='Изображение', upload_to='projects')
 
     @property
     def current(self):

@@ -7,7 +7,7 @@ class CustomUserManager(BaseUserManager):
             raise ValueError('username must be set.')
         user = self.model(username=username, **extra_fields)
         if password1 and password2 and password1 != password2:
-            raise ValidationError({'password': "Passwords don't match"})
+            raise ValidationError({'password': "Пароли не совпадают"})
         user.set_password(password1)
         user.save()
         return user

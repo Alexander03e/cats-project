@@ -20,4 +20,4 @@ class DonatSerializer(serializers.HyperlinkedModelSerializer):
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Project
-        fields = ['url', 'id', 'title', 'goal', 'current']
+        fields = ['url', 'id', 'title', 'description', 'cover', 'goal', 'current']
