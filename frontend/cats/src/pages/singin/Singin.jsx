@@ -7,7 +7,7 @@ const Singin = ({user}) => {
         username: '',
         password: '',
     })
-    const [r, setR] = useState('/singin')
+    
     const [error, setError] = useState(false)
     const login = async (e) => {
         console.log(state)
@@ -17,7 +17,7 @@ const Singin = ({user}) => {
                 password: state.password,
             })
             .then(res => {
-                setError(true)
+                setError(false)
                 window.localStorage.setItem('token', res.data['token'])
             })
             .catch(err => {console.log(err); setError(false)})
