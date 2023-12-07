@@ -15,12 +15,13 @@ const Registration = () => {
         axios
             .post('http://localhost:8000/api/users/register/', {
                 username: state.username,
-                password: state.password1,
+                password1: state.password1,
+                password2: state.password2,
                 full_name: state.fullName,
                 email: state.email,
                 city: state.city
             })
-            .then(res => console.log(res.data))
+            .then(res => {console.log(res.data); window.location.href='/singin'})
             .catch(err => console.log(err))
     }
 

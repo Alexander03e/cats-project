@@ -1,7 +1,10 @@
 import HelpForm from '../../components/HelpForm/HelpForm';
 import './Profile.css'
+import Modal from '../../pages/arrieved/Modal';
+import React from 'react';
 
-const Profile = ({user, store}) => {
+const Profile = ({user, store, get_store}) => {
+    const [modalStatus, setModalStatus] = React.useState(false)
     return (
         <div className="container">
             <div className="profile-page flex gap-24">
@@ -12,8 +15,12 @@ const Profile = ({user, store}) => {
                     <p>{user?.city}</p><br />
                 </div>
                 <div className=" flex-1">
-                    <HelpForm store={store}/>
+                    <HelpForm store={store} get_store={get_store}/>
                 </div>
+                
+                {modalStatus && (<div className="modal">
+                <Modal content={'Спасибо за ваше пожертвование!'} setOpened ={setModalStatus}/>
+            </div>)}
             </div>
 
         </div>

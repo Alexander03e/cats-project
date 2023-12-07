@@ -21,8 +21,8 @@ const MainRoutes = (props) => {
     
     return (
     <Routes>
-        <Route path = "/" element = {<Main store = {props.store}/>} />
-        <Route path = "want-help" element = {<HelpForm store={props.store}/>} />
+        <Route path = "/" element = {<Main store = {props.store}  get_store={props.get_store}/>} />
+        <Route path = "want-help" element = {<HelpForm store={props.store} get_store={props.get_store}/>} />
         <Route path = "registration" element = {<Registration />} />
         <Route path = "singin" element = {<Singin user = {props.store.user}/>} />
         <Route path = "help-info" element = {<HelpInfo />} />
@@ -32,7 +32,7 @@ const MainRoutes = (props) => {
         <Route path = "/animal/:animalid" element ={<AnimalDetail cats={props.store.cats} user ={props.store.user}/>} />
         <Route path ='projects' element = {<ProjectsList projects = {props.store.projects} donats={props.store.donats}/>} />
         <Route path = 'departed' element = {<Departed departed = {departed}/>} />
-        <Route path ='/profile' element = {<Profile user={props.store.user} store ={props.store}/>}/>
+        <Route path ='/profile' element = {<Profile user={props.store.user} store={props.store} get_store={props.get_store}/>}/>
     </Routes>
 
     )

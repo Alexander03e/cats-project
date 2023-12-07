@@ -13,7 +13,9 @@ const projectsURL = 'http://127.0.0.1:8000/api/projects/'
 const profileURL = 'http://127.0.0.1:8000/api/users/profile/'
 const donatsURL = 'http://127.0.0.1:8000/api/donats/'
 const getStore = async () => {
-
+    store.cats = []
+    store.projects = []
+    store.donats = []  
     await axios.get(catsURL).then(res=>{
     res.data.map(cat => {
       store.cats.push(cat)            
@@ -54,7 +56,7 @@ function renderContent () {
     console.log(store.user);
     ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
-      <App store = {store}/>
+      <App store = {store} get_store = {getStore}/>
     </BrowserRouter>
     )
   }, 1000)

@@ -19,8 +19,8 @@ function App(props) {
   // })
   return (
     <>
-      <Header store = {store}/>
-      <MainRoutes store = {store}/>
+      <Header store={store}/>
+      <MainRoutes store={store} get_store={props.get_store}/>
       <Footer />
     </>
   )

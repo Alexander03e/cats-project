@@ -12,6 +12,7 @@ const HelpForm = (props) => {
         console.log(curSum)
     }
     const popUp = () => {
+        
         setModalStatus(!modalStatus)
         
         let random_project = Math.floor(Math.random()*(props.store.projects.length))
@@ -24,7 +25,7 @@ const HelpForm = (props) => {
             headers:{
                 Authorization: `Token ${window.localStorage.getItem('token')}`
             }
-        }).then(res => console.log(res))
+        }).then(res => { console.log(res); props.get_store()})
         .catch(err => console.log(err))
 
     }

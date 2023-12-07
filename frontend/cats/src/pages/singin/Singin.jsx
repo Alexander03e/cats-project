@@ -7,7 +7,7 @@ const Singin = ({user}) => {
         username: '',
         password: '',
     })
-
+    const [r, setR] = useState('/singin')
     const [error, setError] = useState(false)
     const login = async (e) => {
         console.log(state)
@@ -21,7 +21,11 @@ const Singin = ({user}) => {
                 window.localStorage.setItem('token', res.data['token'])
             })
             .catch(err => {console.log(err); setError(false)})
-
+            if (localStorage.getItem('token')!=null){
+                
+                window.location.href='http://localhost:5173/'
+                // window.location.reload()
+            }
     }
 
     return (
@@ -46,10 +50,10 @@ const Singin = ({user}) => {
                 required
             />
             <br />
-            {!error && <div>
+            {error && <div>
                 <p className="pb-4">Неверный логин или пароль!</p>
             </div>}
-    <NavLink to ={error == false ? '/singin' : '/'} onClick={ login } className='singin singin-m rounded-3xl px-4 py-2' >Войти</NavLink>
+    <NavLink onClick={ login } className='singin singin-m rounded-3xl px-4 py-2' >Войти</NavLink>
 </form>
         </div>
     )

@@ -19,6 +19,7 @@ const Animals = ({cats, onGiveHouse}) => {
                 .then(res => {
                     console.log(res.data)
                     onGiveHouse()
+                    window.location.reload()
                 })
                 .catch(err => console.log(err))
         } else {
