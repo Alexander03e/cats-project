@@ -1,11 +1,14 @@
 from django.contrib.auth.base_user import BaseUserManager
+from rest_framework.serializers import ValidationError
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, username, password, **extra_fields):
+    def create_user(self, username, password1, password2, **extra_fields):
         if not username:
             raise ValueError('username must be set.')
         user = self.model(username=username, **extra_fields)
-        user.set_password(password)
+        if password1 and password2 and password1 != password2:
+            raise ValidationError({'password': "Passwords don't match"})
+        user.set_password(password1)
         user.save()
         return user
 
