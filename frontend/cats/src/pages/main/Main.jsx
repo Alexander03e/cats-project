@@ -19,7 +19,7 @@ const Main = (props) => {
                 <Animals cats = {props.store.cats}/>
                 <br />
                 <div id = 'help' className='flex justify-between'>
-                    <HelpForm>оказать помощь животным</HelpForm>
+                    <HelpForm store = {props.store}>оказать помощь животным</HelpForm>
                     <div class='notice'>
                         <h1 className='mb-12'>помощь вещами</h1>
                         <p>Приюту СРОЧНО необходимы:</p>

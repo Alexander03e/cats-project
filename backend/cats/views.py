@@ -14,7 +14,7 @@ class CatViewSet(viewsets.ModelViewSet):
 class AdoptionApplicationViewSet(viewsets.ModelViewSet):
     queryset = AdoptionApplication.objects.all()
     serializer_class = AdoptionApplicationSerializer
-    # permission_classes = (IsAuthenticated,)   
+    permission_classes = (IsAuthenticated,)   
 
     def get_serializer_class(self):
         if self.action in ["create"]:

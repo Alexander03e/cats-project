@@ -20,27 +20,7 @@ const getStore = async () => {
     })
     console.log(store.cats)
     })
-    await axios.get(projectsURL, {
-      headers: {
-          Authorization: `Token ${token}`
-      }
-    }).then(res=>{
-    res.data.map(project => {
-      store.projects.push(project)
-    })
-    console.log(store.projects)
-    })
-    axios.get(donatsURL, {
-    headers: {
-      Authorization: `Token ${token}`
-    }
-  }).then(res=>{
-    console.log(res.data)
-  res.data.map(cat => {
-    store.cats.push(cat)            
-  })
-  console.log(store.cats)
-  })
+
   axios.get(projectsURL, {
     headers: {
         Authorization: `Token ${token}`
@@ -55,7 +35,7 @@ const getStore = async () => {
     headers: {
         Authorization: `Token ${token}`
     }
-  }).then(res=>{ store.user = {...res.data} })
+  }).then(res=>{store.user = {...res.data} })
   
   // axios.get(donatsURL, {
   // headers: {
@@ -71,6 +51,7 @@ const getStore = async () => {
 function renderContent () {
   getStore()
   setTimeout(() => {
+    console.log(store.user);
     ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <App store = {store}/>

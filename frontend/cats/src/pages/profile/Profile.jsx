@@ -1,7 +1,7 @@
 import HelpForm from '../../components/HelpForm/HelpForm';
 import './Profile.css'
 
-const Profile = ({user}) => {
+const Profile = ({user, store}) => {
     return (
         <div className="container">
             <div className="profile-page flex gap-24">
@@ -12,7 +12,7 @@ const Profile = ({user}) => {
                     <p>{user?.city}</p><br />
                 </div>
                 <div className=" flex-1">
-                    <HelpForm />
+                    <HelpForm store={store}/>
                 </div>
             </div>
 

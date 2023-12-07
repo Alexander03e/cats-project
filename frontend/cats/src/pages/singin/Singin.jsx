@@ -8,6 +8,7 @@ const Singin = ({user}) => {
         password: '',
     })
 
+    const [error, setError] = useState(false)
     const login = async (e) => {
         console.log(state)
         await axios
@@ -16,10 +17,10 @@ const Singin = ({user}) => {
                 password: state.password,
             })
             .then(res => {
-                
+                setError(true)
                 window.localStorage.setItem('token', res.data['token'])
             })
-            .catch(err => console.log(err))
+            .catch(err => {console.log(err); setError(false)})
 
     }
 
@@ -45,8 +46,10 @@ const Singin = ({user}) => {
                 required
             />
             <br />
-            
-    <NavLink to ='/' onClick={ login } className='singin singin-m rounded-3xl px-4 py-2' >Войти</NavLink>
+            {!error && <div>
+                <p className="pb-4">Неверный логин или пароль!</p>
+            </div>}
+    <NavLink to ={error == false ? '/singin' : '/'} onClick={ login } className='singin singin-m rounded-3xl px-4 py-2' >Войти</NavLink>
 </form>
         </div>
     )
