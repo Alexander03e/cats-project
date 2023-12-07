@@ -9,9 +9,18 @@ const Registration = () => {
         password2: '',
         fullName: '',
         email: '',
-        city: ''
+        city: '',
+        error: '',
     })
     const register = () => {
+        setState({...state, error: ''})
+        for (let key of Object.keys(state)) {
+            if (key !== 'error' && key !== 'city') {
+                if (state[key] === '') {
+                    return setState({...state, error: 'Заполните все поля'})
+                }
+            }
+        }
         axios
             .post('http://localhost:8000/api/users/register/', {
                 username: state.username,
@@ -21,13 +30,18 @@ const Registration = () => {
                 email: state.email,
                 city: state.city
             })
-            .then(res => {console.log(res.data); window.location.href='/singin'})
-            .catch(err => console.log(err))
+            .then(res => {
+                console.log(res.data)
+                window.location.href='/singin'
+            })
+            .catch(err => {
+                console.log(err.request.response)
+                setState({...state, error: err.request.response.split("\"")[3]})
+            })
     }
 
     return (
-        
-            <div className="container">
+        <div className="container">
             <form className='reg-form'>
                 <h1 className='mb-8'>регистрация</h1>
                 <input
@@ -84,9 +98,10 @@ const Registration = () => {
                     required
                 />
                 <br />
-      <Button onClick={register}>Зарегистрироваться</Button>
-    </form>
-            </div>
+                <Button onClick={register}>Зарегистрироваться</Button>
+                <p className='mt-4'>{ state.error }</p>
+            </form>
+        </div>
         
     )
 }
