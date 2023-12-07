@@ -59,6 +59,6 @@ function renderContent () {
       <App store = {store} get_store = {getStore}/>
     </BrowserRouter>
     )
-  }, 1000)
+  }, 2100)
 }
 renderContent()
