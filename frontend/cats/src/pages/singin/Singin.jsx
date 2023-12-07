@@ -11,16 +11,16 @@ const Singin = ({user}) => {
     const [error, setError] = useState(false)
     const login = async (e) => {
         console.log(state)
+        setError(false)
         await axios
             .post('http://localhost:8000/api/token/', {
                 username: state.username,
                 password: state.password,
             })
             .then(res => {
-                setError(true)
                 window.localStorage.setItem('token', res.data['token'])
             })
-            .catch(err => {console.log(err); setError(false)})
+            .catch(err => {console.log(err); setError(true)})
             if (localStorage.getItem('token')!=null){
                 
                 window.location.href='http://localhost:5173/'
@@ -50,10 +50,11 @@ const Singin = ({user}) => {
                 required
             />
             <br />
+            <NavLink onClick={ login } className='singin singin-m rounded-3xl px-4 py-2' >Войти</NavLink>
+            <br />
             {error && <div>
                 <p className="pb-4">Неверный логин или пароль!</p>
             </div>}
-    <NavLink onClick={ login } className='singin singin-m rounded-3xl px-4 py-2' >Войти</NavLink>
 </form>
         </div>
     )
